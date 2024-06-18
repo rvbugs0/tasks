@@ -32,18 +32,4 @@ class DBConnection
     }
 }
 
-
-// try {
-//     echo "hello";
-//     $c = DBConnection::getConnection();
-//     echo $c;
-
-
-
-
-
-// } catch (Exception $exception) {
-//     echo json_encode($exception);
-// }
-
 ?>
