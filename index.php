@@ -12,33 +12,21 @@
   <div class="left">
     <h1>Tasks App</h1>
     <div>
-      <input type="text" placeholder="Type your task..." />
-      
+      <input type="text" id="taskInput" placeholder="Type your task..." />
+
     </div>
   </div>
 
-  <div class="right">
-
-    <?php
+  <div class="right" id="taskContainer">
 
 
-    require_once ("TaskData.php");
-    $taskData = new TaskData();
-    $tasks = $taskData->getTasks();
-    foreach ($tasks as $task) {
-      $taskcontent = $task['content'];
-      $taskid = $task['id'];
-      echo "<div class='task'>";
-      echo "<span>$taskcontent</span> &nbsp;<span class='deleteBtn' id='$taskid'>X</span>";
-      echo "</div>";
-        
-    
-    }
 
 
-    ?>
+
 
   </div>
+
+  <script type="text/javascript" src="index.js"></script>
 </body>
 
 </html>
