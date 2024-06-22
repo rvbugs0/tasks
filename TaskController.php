@@ -8,14 +8,16 @@ $method = $_SERVER['REQUEST_METHOD'];
 if ($method == "GET") {
     // fetch tasks
     $taskData = new TaskData();
-    $tasks = $taskData->getTasks();
+
+    $user = $_GET["user"];
+    $tasks = $taskData->getTasks($user);
     echo json_encode($tasks);
 } elseif ($method == "POST") {
     // create new task
     $taskData = new TaskData();
     $task = json_decode(file_get_contents("php://input"), true);
     
-    echo json_encode($taskData->insertTask($task['content']));
+    echo json_encode($taskData->insertTask($task['content'],$task['user']));
 
 } elseif ($method == "DELETE") {
 

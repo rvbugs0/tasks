@@ -1,11 +1,21 @@
+var user = -1; 
+
 document.addEventListener("DOMContentLoaded", function () {
 
+    user = document.getElementById("userid").value;
+
+    
     getTasks();
 
     addTaskInputListener();
+    
+    addUsernameInputListener();
 
 
 });
+
+
+
 
 function addTaskInputListener(){
 
@@ -26,9 +36,12 @@ function addTaskInputListener(){
     });
 }
 
+
+
+
 function getTasks(){
     let taskContainer = document.getElementById("taskContainer");
-    fetch("api.php")
+    fetch("TaskController.php?user="+user)
       .then((response) => {
         return response.json();
       })
@@ -55,7 +68,7 @@ function getTasks(){
 }
 
 function deleteTask(id, e) {
-  fetch("api.php", { body: JSON.stringify({ id: id }), method: "DELETE" })
+  fetch("TaskController.php", { body: JSON.stringify({ id: id }), method: "DELETE" })
     .then((response) => response.json())
     .then((response) => {
       e.parentElement.style.display = "none";
@@ -63,8 +76,8 @@ function deleteTask(id, e) {
 }
 
 function insertTask(content) {
-  fetch("api.php", {
-    body: JSON.stringify({ content: content }),
+  fetch("TaskController.php", {
+    body: JSON.stringify({ content: content,user:user }),
     method: "POST",
   })
     .then((response) => response.json())
@@ -85,7 +98,7 @@ function insertTask(content) {
         ",this) >X</span>";
       str += "</div>";
 
-      taskContainer.innerHTML = str+ taskContainer.innerHTML;
+      taskContainer.innerHTML =  taskContainer.innerHTML+str;
 
 
     });

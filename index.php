@@ -1,32 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TASKS APP</title>
-  <link rel="stylesheet" href="index.css" />
-</head>
+if (isset($_GET["user"])) {
 
-<body>
-  <div class="left">
-    <h1>Tasks App</h1>
-    <div>
-      <input type="text" id="taskInput" placeholder="Type your task..." />
-
-    </div>
-  </div>
-
-  <div class="right" id="taskContainer">
+  $user = $_GET["user"];
+  include_once ("task-dashboard.php");
 
 
+} else {
 
+  include_once ("home-nouser.php");
 
+}
 
-
-  </div>
-
-  <script type="text/javascript" src="index.js"></script>
-</body>
-
-</html>
+?>

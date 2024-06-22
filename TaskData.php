@@ -17,11 +17,11 @@ class TaskData
         return null;
     }
 
-    public function insertTask($content)
+    public function insertTask($content, $user)
     {
         $content = substr($content,0,99);
         $connection = DBConnection::getConnection();
-        $result = $connection->query("insert into tbl_tasks (content) values ('$content')");
+        $result = $connection->query("insert into tbl_tasks (content, user) values ('$content',$user)");
         $last_id = $connection->insert_id; 
         return $this->getTask($last_id);
 
@@ -29,11 +29,11 @@ class TaskData
 
 
 
-    public function getTasks()
+    public function getTasks($user)
     {
 
         $connection = DBConnection::getConnection();
-        $result = $connection->query("select * from tbl_tasks");
+        $result = $connection->query("select * from tbl_tasks WHERE user=$user");
         $r_array = [];
 
         while ($row = $result->fetch_assoc()) {
@@ -50,6 +50,8 @@ class TaskData
         $connection = DBConnection::getConnection();
         $connection->query("delete from tbl_tasks where id = $id");
     }
+
+
 
 }
 

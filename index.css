@@ -65,7 +65,18 @@ body {
     color: red;
     font-weight: bold;
     cursor: pointer;
-       
+}
 
+.task:hover
+{
+  background-color: yellow;
+}
 
+.unavailable{
+  
+  color: red;
+}
+.available{
+  color: green;
+  
 }

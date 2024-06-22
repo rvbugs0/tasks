@@ -7,8 +7,15 @@ class CreateData
     public function createTables()
     {
         $connection = DBConnection::getConnection();
-        $sql = "CREATE TABLE tbl_tasks (id INT PRIMARY KEY AUTO_INCREMENT, content VARCHAR(100) NOT NULL)";
-        if ($connection->query($sql) == TRUE) {
+        
+        $sql1="CREATE TABLE tbl_users (id INT PRIMARY KEY AUTO_INCREMENT, username VARCHAR(50) NOT NULL);";
+        $sql = "CREATE TABLE tbl_tasks (id INT PRIMARY KEY AUTO_INCREMENT, content VARCHAR(100) NOT NULL, user INT NOT NULL, 
+        FOREIGN KEY (user) REFERENCES tbl_users(id));";
+        // $sql2= "insert into tbl_users (username) values ('rvbugs0');";
+
+        $sql3= $sql1.$sql;
+
+        if ($connection->multi_query($sql3) == TRUE) {
             echo "table created successfully.";
         } else {
             echo "Error: " . $connection->error;
@@ -44,7 +51,7 @@ class CreateData
 $cd = new CreateData();
 
 $cd->createTables();
-$cd->createDemoTasks();
+// $cd->createDemoTasks();
 
 
 
