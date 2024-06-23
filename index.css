@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+NG+Modern:wght@100..400&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -6,66 +7,83 @@
 }
 
 body {
-  background-color: white;
-  color: white;
+  background-color: #f9f9fb;
+  color: black;
   display: flex;
   flex-direction: row;
 }
 
 .left {
-  width: 40%;
+  width: 35%;
   height: 100vh;
-  background-color: beige;
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .left > h1 {
-  font-size: 3em;
   padding: 20px;
   color: black;
+  font-family: "Playwrite NG Modern", cursive;
+  font-weight: 500;
 }
 
-.left input {
-    margin: 20px;
-    width: 90%;
-    height: 50px;
-    font-size: 1.5em;
-    padding: 5px;
+#taskInput {
+  margin: 20px;
+  width: 80%;
+  height: 35px;
+  font-size: 1.2em;
+  padding: 10px;
+  color: black;
+  /* background-color: #93870030; */
+  /* background-color: #0085f21a; */
+  border: 1px solid #ccc;
 }
 
 .right {
-    overflow-y:scroll;
+  overflow-y: scroll;
   height: 100vh;
-  width: 60%;
-  background-color: purple;
-  
-
+  width: 65%;
+  background-color: #f9f9fb;
+  border-left: 1px solid #ccc;
 }
 
 .task {
-    border:1px solid darkgreen;
-    padding: 10px 20px 10px 40px;
-    background-color: yellowgreen;
-    font-size: 2em;
-    display: flex;
-    color: black;
-    justify-content: space-between;
-}
-.task .deleteBtn{
-    font-size: 1em;
-
-
-
+  border-bottom: 1px solid #ccc;
+  padding: 10px 20px 10px 40px;
+  background-color: #f2f1f1;
+  font-size: 1.2em;
+  display: flex;
+  color: black;
+  justify-content: space-between;
+  color: black;
 }
 
-.task .deleteBtn:hover{
-    font-size: 1em;
-    color: red;
-    font-weight: bold;
-    cursor: pointer;
-       
+.task:hover {
+  background-color: #0085f21a;
+  color: black;
+}
+.task .deleteBtn {
+  font-size: 1em;
+}
 
-
+.task .deleteBtn:hover {
+  font-size: 1em;
+  color: #ff6d91;
+  font-weight: bold;
+  cursor: pointer;
+}
+.optionsContainer {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  font-family: Montserrat, sans-serif;
+  font-size: 1.4em;
+}
+.optionsContainer input {
+  
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
 }
